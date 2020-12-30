@@ -1,0 +1,93 @@
+ <!DOCTYPE html>
+    <html lang="en">L
+    <head>
+        <meta charset="UTF-8">
+        <title>小金大派送</title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			#uls{
+				width: 500px;
+				height: 500px;
+				margin: 50px auto;
+			}
+			li{
+				width: 150px;
+				height: 150px;
+				background: skyblue;
+				float: left;
+				list-style: none;
+				margin:5px;
+				color: #fff;
+				text-align: center;
+				line-height: 150px;
+				font-size: 20px;
+				font-weight: bold;
+			}
+			#uls li button{
+				width: 50px;
+				height: 30px;
+			}
+			.light{
+				width: 150px;
+				height: 150px;
+				background: #666;
+				color: #fff;
+			}
+	</style>
+    </head>
+    <body>
+    <ul id='uls'>
+        <li>10元</li>
+        <li>800元</li>
+        <li>1000元</li>
+        <li>80元</li>
+        <li><button id='btn1' style="color: skyblue;">开始</button>
+            <button id='btn2' style="color: skyblue;">停止</button></li>
+        <li>600元</li>
+        <li>60元</li>
+        <li>100元</li>
+        <li>20元</li>
+    </ul> 
+    <script src="../lib/jquery/jquery-3.3.1.js"></script>
+    <script src="../lib/jquery/jquery-3.3.1.min.js"></script>
+    <script src="../lib/layer/layer/layer.js"></script>
+    <script>
+		var btn1=document.getElementById("btn1");
+		var btn2=document.getElementById("btn2");
+		var arr=[0,1,2,5,8,7,6,3];//按这个下标依次旋转
+		var lis=document.getElementsByTagName("li");
+		var num=0;  //定义初识下标
+		btn1.onclick=function(){
+
+			btn1.disabled=true;
+			time=setInterval(function(){
+				lis[arr[num]].className="";
+				num++;
+				if(num>7){
+					num=0;
+				}
+				lis[arr[num]].className="light";
+				console.log(lis[arr[num]].className);
+			},30);
+
+		};
+		btn2.onclick=function(){
+			// var loc = location.href;
+			// var n1 = loc.length;//地址的总长度
+			// var n2 = loc.indexOf("=");//取得=号的位置
+			// var username = decodeURI(loc.substr(n2 + 1, n1 - n2));//取=号后面的内容
+			// document.getElementById("username").value = username;
+		   // console.log(username);
+		   //  var obj = document.getElementById("uls").getElementsByTagName("li");
+			setTimeout(function(){ clearInterval(time); },0);
+				btn1.disabled=false;
+			// var prize= obj[arr[num]].innerHTML;
+			// alert(prize);
+
+			};
+	</script>
+    </body>
+    </html>
