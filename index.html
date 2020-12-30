@@ -1,5 +1,6 @@
  <!DOCTYPE html>
-    <html lang="en">L
+    <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <title>小金大派送</title>
@@ -40,16 +41,15 @@
     </head>
     <body>
     <ul id='uls'>
-        <li>10元</li>
-        <li>800元</li>
-        <li>1000元</li>
-        <li>80元</li>
+        <li>小金给1元</li>
+        <li>小金给8元</li>
+        <li>给小金1元</li>
+        <li>给小金5元</li>
         <li><button id='btn1' style="color: skyblue;">开始</button>
-            <button id='btn2' style="color: skyblue;">停止</button></li>
-        <li>600元</li>
-        <li>60元</li>
-        <li>100元</li>
-        <li>20元</li>
+        <li>小金给3元</li>
+        <li>小金给2元</li>
+        <li>给小金2元</li>
+        <li>给小金1元</li>
     </ul> 
     <script src="../lib/jquery/jquery-3.3.1.js"></script>
     <script src="../lib/jquery/jquery-3.3.1.min.js"></script>
@@ -72,7 +72,8 @@
 				lis[arr[num]].className="light";
 				console.log(lis[arr[num]].className);
 			},30);
-
+			var sc = randomNum(1,4);
+			setTimeout(function(){ clearInterval(time); },sc*1000);
 		};
 		btn2.onclick=function(){
 			// var loc = location.href;
@@ -88,6 +89,20 @@
 			// alert(prize);
 
 			};
+		function randomNum(minNum, maxNum) {
+			  switch (arguments.length) {
+				case 1:
+				  return parseInt(Math.random() * minNum + 1, 10);
+				  break;
+				case 2:
+				  return parseInt(Math.random() * ( maxNum - minNum + 1 ) + minNum, 10);
+				  //或者 Math.floor(Math.random()*( maxNum - minNum + 1 ) + minNum );
+				  break;
+				default:
+				  return 0;
+				  break;
+			  }
+			} 
 	</script>
     </body>
     </html>
